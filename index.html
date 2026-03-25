@@ -12,6 +12,7 @@
     <meta property="og:url" content="https://aevendum.com">
     <title>Aevendum | Modern Medical & Biotech — Suplementos Premium</title>
     <link rel="icon" type="image/png" href="./assets/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     <style>
         * {
             margin: 0;
@@ -20,11 +21,13 @@
         }
 
         :root {
-            --primary-green: #1a9d6e;
-            --dark-bg: #0a0e27;
-            --text-light: #e0e5f0;
-            --text-muted: #8b92a9;
-            --accent-gold: #d4af37;
+            --emerald: #1a9d6e;
+            --gold: #d4af37;
+            --background: #0a0f0d;
+            --foreground: #e8e8e8;
+            --muted-foreground: #a8a8a8;
+            --border: #2a2a2a;
+            --secondary: #1a1a1a;
         }
 
         html {
@@ -32,84 +35,55 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, var(--dark-bg) 0%, #0f1535 100%);
-            color: var(--text-light);
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--foreground);
             line-height: 1.6;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* Fondo global con efecto de moléculas animadas */
+        /* ─── FONDO DE ADN DINÁMICO ─── */
         body::before {
             content: '';
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            right: 0;
+            bottom: 0;
             background-image: 
-                radial-gradient(circle at 20% 50%, rgba(26, 157, 110, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(26, 157, 110, 0.06) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(212, 175, 55, 0.04) 0%, transparent 50%);
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600"><defs><linearGradient id="dnaGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:rgba(26,157,110,0.08);stop-opacity:1"/><stop offset="50%" style="stop-color:rgba(26,157,110,0.04);stop-opacity:1"/><stop offset="100%" style="stop-color:rgba(26,157,110,0.08);stop-opacity:1"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g stroke="rgba(26,157,110,0.15)" stroke-width="2" fill="none" filter="url(%23glow)"><path d="M 300 0 Q 400 100 300 200 T 300 400 T 300 600 T 300 800 T 300 1000 T 300 1200 T 300 1400 T 300 1600" opacity="0.6"/><path d="M 900 0 Q 800 100 900 200 T 900 400 T 900 600 T 900 800 T 900 1000 T 900 1200 T 900 1400 T 900 1600" opacity="0.6"/><circle cx="300" cy="100" r="8" fill="rgba(26,157,110,0.3)"/><circle cx="900" cy="100" r="8" fill="rgba(26,157,110,0.3)"/><circle cx="300" cy="300" r="8" fill="rgba(26,157,110,0.3)"/><circle cx="900" cy="300" r="8" fill="rgba(26,157,110,0.3)"/><circle cx="300" cy="500" r="8" fill="rgba(26,157,110,0.3)"/><circle cx="900" cy="500" r="8" fill="rgba(26,157,110,0.3)"/><circle cx="300" cy="700" r="8" fill="rgba(26,157,110,0.3)"/><circle cx="900" cy="700" r="8" fill="rgba(26,157,110,0.3)"/><circle cx="300" cy="900" r="8" fill="rgba(26,157,110,0.3)"/><circle cx="900" cy="900" r="8" fill="rgba(26,157,110,0.3)"/><circle cx="300" cy="1100" r="8" fill="rgba(26,157,110,0.3)"/><circle cx="900" cy="1100" r="8" fill="rgba(26,157,110,0.3)"/><circle cx="300" cy="1300" r="8" fill="rgba(26,157,110,0.3)"/><circle cx="900" cy="1300" r="8" fill="rgba(26,157,110,0.3)"/><line x1="300" y1="100" x2="900" y2="100" stroke="rgba(26,157,110,0.2)"/><line x1="300" y1="300" x2="900" y2="300" stroke="rgba(26,157,110,0.2)"/><line x1="300" y1="500" x2="900" y2="500" stroke="rgba(26,157,110,0.2)"/><line x1="300" y1="700" x2="900" y2="700" stroke="rgba(26,157,110,0.2)"/><line x1="300" y1="900" x2="900" y2="900" stroke="rgba(26,157,110,0.2)"/><line x1="300" y1="1100" x2="900" y2="1100" stroke="rgba(26,157,110,0.2)"/><line x1="300" y1="1300" x2="900" y2="1300" stroke="rgba(26,157,110,0.2)"/></g></svg>');
+            background-size: 100% 100%;
             background-attachment: fixed;
-            pointer-events: none;
+            background-repeat: repeat;
             z-index: 0;
-            animation: moleculeFlow 20s ease-in-out infinite;
+            animation: dnaPulse 8s ease-in-out infinite;
+            pointer-events: none;
         }
 
-        @keyframes moleculeFlow {
+        @keyframes dnaPulse {
             0%, 100% {
-                opacity: 1;
-                transform: translateY(0px);
+                opacity: 0.5;
             }
             50% {
                 opacity: 0.8;
-                transform: translateY(-30px);
             }
         }
 
-        /* Burbujas flotantes de fondo */
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 15% 30%, rgba(26, 157, 110, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 85% 20%, rgba(26, 157, 110, 0.04) 0%, transparent 35%),
-                radial-gradient(circle at 50% 70%, rgba(26, 157, 110, 0.03) 0%, transparent 45%);
-            background-attachment: fixed;
-            pointer-events: none;
-            z-index: 0;
-            animation: bubbleFloat 30s ease-in-out infinite;
-        }
-
-        @keyframes bubbleFloat {
-            0%, 100% {
-                transform: scale(1) translateX(0);
-            }
-            50% {
-                transform: scale(1.1) translateX(20px);
-            }
-        }
-
-        /* Contenedor principal */
         main {
             position: relative;
-            z-index: 1;
+            z-index: 10;
         }
 
-        /* Header */
+        /* ─── HEADER ─── */
         header {
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 1000;
-            background: rgba(10, 14, 39, 0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(26, 157, 110, 0.2);
+            width: 100%;
+            z-index: 50;
+            background: rgba(10, 15, 13, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(42, 42, 42, 0.4);
             padding: 1rem 2rem;
             animation: slideDown 0.6s ease-out;
         }
@@ -126,7 +100,7 @@
         }
 
         .header-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -136,11 +110,9 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
             text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-light);
+            color: var(--foreground);
             transition: all 0.3s ease;
         }
 
@@ -149,23 +121,23 @@
         }
 
         .logo img {
-            height: 56px;
+            height: 64px;
             width: auto;
-            filter: drop-shadow(0 0 10px rgba(26, 157, 110, 0.3));
+            filter: drop-shadow(0 0 8px rgba(26, 157, 110, 0.3));
         }
 
         nav {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             align-items: center;
         }
 
         nav a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            color: var(--muted-foreground);
+            text-decoration: none;
             transition: all 0.3s ease;
             position: relative;
         }
@@ -177,84 +149,52 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--primary-green);
+            background: var(--emerald);
             transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--emerald);
         }
 
         nav a:hover::after {
             width: 100%;
         }
 
-        nav a:hover {
-            color: var(--primary-green);
-        }
-
-        .cta-button {
-            background: linear-gradient(135deg, var(--primary-green) 0%, #158b5f 100%);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 4px;
+        .nav-cta {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--emerald);
+            border: 1px solid rgba(26, 157, 110, 0.4);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
             transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(26, 157, 110, 0.3);
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(26, 157, 110, 0.5);
+        .nav-cta:hover {
+            background: var(--emerald);
+            color: white;
+            border-color: var(--emerald);
         }
 
-        /* Hero Section */
+        /* ─── HERO ─── */
         .hero {
-            min-height: 90vh;
+            position: relative;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            position: relative;
             overflow: hidden;
-            padding: 2rem;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(26, 157, 110, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            top: -300px;
-            right: -300px;
-            animation: float 25s ease-in-out infinite;
-            z-index: 0;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            bottom: -200px;
-            left: -200px;
-            animation: float 30s ease-in-out infinite reverse;
-            z-index: 0;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) scale(1); }
-            50% { transform: translateY(-40px) scale(1.05); }
+            margin-top: 80px;
+            background: linear-gradient(135deg, rgba(26, 157, 110, 0.05) 0%, rgba(26, 157, 110, 0.02) 100%);
         }
 
         .hero-content {
-            max-width: 900px;
-            text-align: center;
             position: relative;
-            z-index: 1;
+            z-index: 10;
+            max-width: 900px;
+            padding: 2rem;
             animation: fadeInUp 1s ease-out;
         }
 
@@ -270,386 +210,557 @@
         }
 
         .hero-subtitle {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 1rem;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 500;
             animation: fadeInUp 1s ease-out 0.2s both;
         }
 
-        .hero-subtitle::before,
-        .hero-subtitle::after {
+        .hero-subtitle::before {
             content: '';
-            width: 50px;
+            width: 30px;
             height: 1px;
-            background: linear-gradient(to right, transparent, var(--primary-green), transparent);
+            background: var(--gold);
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            font-weight: 800;
+            font-size: clamp(2.5rem, 10vw, 5rem);
+            font-weight: 700;
+            line-height: 0.95;
+            margin-bottom: 2rem;
             animation: fadeInUp 1s ease-out 0.4s both;
-            background: linear-gradient(135deg, var(--text-light) 0%, var(--text-muted) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-family: 'Playfair Display', serif;
         }
 
         .hero h1 .highlight {
-            background: linear-gradient(135deg, var(--primary-green) 0%, #158b5f 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--emerald);
         }
 
         .hero p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 1s ease-out 0.6s both;
+            font-size: 1.1rem;
+            color: var(--muted-foreground);
+            max-width: 600px;
+            margin-bottom: 2rem;
             line-height: 1.8;
+            animation: fadeInUp 1s ease-out 0.6s both;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 1.5rem;
-            justify-content: center;
             flex-wrap: wrap;
+            gap: 1rem;
             animation: fadeInUp 1s ease-out 0.8s both;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-green) 0%, #158b5f 100%);
-            color: white;
-            padding: 1.1rem 2.5rem;
-            border-radius: 6px;
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 0.7rem;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--emerald);
+            color: white;
             box-shadow: 0 8px 25px rgba(26, 157, 110, 0.3);
-            font-size: 1rem;
         }
 
         .btn-primary:hover {
-            transform: translateY(-4px);
+            background: #158b5f;
+            transform: translateY(-3px);
             box-shadow: 0 12px 35px rgba(26, 157, 110, 0.5);
         }
 
         .btn-secondary {
-            background: rgba(26, 157, 110, 0.1);
-            color: var(--text-light);
-            padding: 1.1rem 2.5rem;
-            border: 2px solid var(--primary-green);
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            font-size: 1rem;
-            backdrop-filter: blur(10px);
+            background: transparent;
+            color: var(--foreground);
+            border: 1px solid rgba(42, 42, 42, 0.6);
         }
 
         .btn-secondary:hover {
-            background: var(--primary-green);
-            color: white;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(26, 157, 110, 0.4);
+            background: rgba(26, 157, 110, 0.1);
+            border-color: var(--emerald);
+            color: var(--emerald);
         }
 
-        /* Features Section */
-        .features {
-            max-width: 1200px;
-            margin: 6rem auto;
-            padding: 2rem;
+        /* ─── DIVIDER ─── */
+        .divider {
+            height: 1px;
+            background: var(--gold);
+            max-width: 200px;
+            margin: 4rem auto;
+        }
+
+        /* ─── MISSION ─── */
+        .mission {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .mission-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
-        .feature-card {
-            background: rgba(26, 157, 110, 0.08);
-            border: 1px solid rgba(26, 157, 110, 0.25);
-            padding: 2.5rem;
-            border-radius: 12px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(10px);
-            animation: fadeInUp 1s ease-out both;
+        .mission-image {
             position: relative;
             overflow: hidden;
+            border-radius: 1rem;
         }
 
-        .feature-card:nth-child(1) { animation-delay: 0.2s; }
-        .feature-card:nth-child(2) { animation-delay: 0.4s; }
-        .feature-card:nth-child(3) { animation-delay: 0.6s; }
+        .mission-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
 
-        .feature-card::before {
+        .mission-image::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(26, 157, 110, 0.2), transparent);
-            transition: left 0.5s ease;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 15, 13, 0.6), transparent);
         }
 
-        .feature-card:hover::before {
-            left: 100%;
-        }
-
-        .feature-card:hover {
-            background: rgba(26, 157, 110, 0.15);
-            border-color: var(--primary-green);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(26, 157, 110, 0.2);
-        }
-
-        .feature-card h3 {
-            color: var(--primary-green);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .feature-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            position: relative;
-            z-index: 1;
-            line-height: 1.7;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            max-width: 1000px;
-            margin: 6rem auto;
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, rgba(26, 157, 110, 0.15) 0%, rgba(26, 157, 110, 0.08) 100%);
-            border: 1px solid rgba(26, 157, 110, 0.3);
-            border-radius: 16px;
-            text-align: center;
-            backdrop-filter: blur(20px);
-            animation: fadeInUp 1s ease-out 0.8s both;
-            box-shadow: 0 20px 60px rgba(26, 157, 110, 0.1);
-        }
-
-        .cta-section h2 {
-            font-size: 2.5rem;
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--text-light) 0%, var(--primary-green) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
         }
 
-        .cta-section p {
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            font-size: 1.1rem;
+        .section-label::before {
+            content: '';
+            width: 20px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        h2 .highlight {
+            color: var(--emerald);
+        }
+
+        .mission-content p {
+            color: var(--muted-foreground);
+            margin-bottom: 1.5rem;
             line-height: 1.8;
         }
 
-        /* Footer */
-        footer {
-            background: rgba(10, 14, 39, 0.9);
-            border-top: 1px solid rgba(26, 157, 110, 0.2);
-            padding: 4rem 2rem 2rem;
-            margin-top: 6rem;
-            backdrop-filter: blur(10px);
+        /* ─── WHY SECTION ─── */
+        .why {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(26, 157, 110, 0.08) 0%, rgba(26, 157, 110, 0.03) 100%);
         }
 
-        .footer-content {
-            max-width: 1200px;
+        .why-container {
+            max-width: 1400px;
             margin: 0 auto;
+        }
+
+        .why-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .why-card {
+            background: rgba(26, 157, 110, 0.08);
+            border: 1px solid rgba(26, 157, 110, 0.2);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            transition: all 0.4s ease;
+        }
+
+        .why-card:hover {
+            background: rgba(26, 157, 110, 0.15);
+            border-color: var(--emerald);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(26, 157, 110, 0.15);
+        }
+
+        .why-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--emerald);
+        }
+
+        .why-card p {
+            color: var(--muted-foreground);
+            line-height: 1.7;
+        }
+
+        /* ─── CONTACT ─── */
+        .contact {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info {
             margin-bottom: 2rem;
         }
 
-        .footer-section h4 {
-            color: var(--primary-green);
-            margin-bottom: 1.2rem;
-            font-size: 1.1rem;
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--muted-foreground);
         }
 
-        .footer-section a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            display: block;
-            margin-bottom: 0.7rem;
+        .contact-info-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(26, 157, 110, 0.1);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--emerald);
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            background: rgba(26, 157, 110, 0.08);
+            border: 1px solid rgba(26, 157, 110, 0.2);
+            padding: 2.5rem;
+            border-radius: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(10, 15, 13, 0.5);
+            border: 1px solid rgba(42, 42, 42, 0.6);
+            border-radius: 0.5rem;
+            color: var(--foreground);
+            font-family: inherit;
             transition: all 0.3s ease;
         }
 
-        .footer-section a:hover {
-            color: var(--primary-green);
-            transform: translateX(5px);
+        input::placeholder, textarea::placeholder {
+            color: var(--muted-foreground);
         }
 
-        .footer-section p {
-            color: var(--text-muted);
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--emerald);
+            box-shadow: 0 0 0 3px rgba(26, 157, 110, 0.1);
+        }
+
+        textarea {
+            resize: none;
+            min-height: 150px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--emerald);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
             font-size: 0.9rem;
-            line-height: 1.6;
         }
 
-        .footer-bottom {
-            border-top: 1px solid rgba(26, 157, 110, 0.2);
-            padding-top: 2rem;
-            text-align: center;
-            color: var(--text-muted);
+        .form-submit:hover {
+            background: #158b5f;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(26, 157, 110, 0.3);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            padding: 2rem;
+            border-top: 1px solid rgba(42, 42, 42, 0.4);
+            background: rgba(10, 15, 13, 0.5);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-logo img {
+            height: 48px;
+            width: auto;
+        }
+
+        .footer-text {
             font-size: 0.85rem;
+            color: var(--muted-foreground);
+            font-weight: 300;
         }
 
-        /* Responsive */
+        .footer-nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-nav a {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted-foreground);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            color: var(--emerald);
+        }
+
+        /* ─── AOS ANIMATIONS ─── */
+        [data-aos] {
+            opacity: 0;
+        }
+
+        [data-aos].aos-animate {
+            opacity: 1;
+        }
+
+        /* ─── RESPONSIVE ─── */
         @media (max-width: 768px) {
             nav {
                 display: none;
             }
 
-            .hero {
-                min-height: 70vh;
-                padding: 1.5rem;
+            .nav-cta {
+                display: none;
+            }
+
+            .mission-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
             }
 
             .hero h1 {
                 font-size: 2rem;
             }
 
-            .hero-buttons {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .btn-primary,
-            .btn-secondary {
-                width: 100%;
-                text-align: center;
-            }
-
-            .features {
-                grid-template-columns: 1fr;
-                margin: 3rem auto;
-            }
-
-            .cta-section {
-                margin: 3rem auto;
-                padding: 2.5rem 1.5rem;
-            }
-
-            .cta-section h2 {
+            h2 {
                 font-size: 1.8rem;
             }
 
-            header {
-                padding: 0.75rem 1.5rem;
+            .hero-buttons {
+                flex-direction: column;
             }
 
-            .logo img {
-                height: 48px;
+            .btn {
+                width: 100%;
+                text-align: center;
             }
         }
 
-        /* Loading optimization */
-        img {
-            loading: lazy;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;500;600&display=swap');
     </style>
 </head>
 <body>
-    <main>
-        <!-- Header -->
-        <header>
-            <div class="header-container">
-                <a href="#" class="logo">
-                    <img src="./assets/logo.png" alt="Aevendum Logo" width="56" height="56">
-                </a>
-                <nav>
-                    <a href="#mision">Misión</a>
-                    <a href="#diferencial">Diferencial</a>
-                    <a href="#vision">Visión</a>
-                    <a href="https://tienda.aevendum.com" class="cta-button">Tienda</a>
-                </nav>
-            </div>
-        </header>
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <img src="./assets/logo.png" alt="Aevendum Logo" width="64" height="64">
+            </a>
+            <nav>
+                <a href="#mission">Misión</a>
+                <a href="#why">Diferencial</a>
+                <a href="#vision">Visión</a>
+                <a href="https://tienda.aevendum.com">Tienda</a>
+                <a href="#contact">Contacto</a>
+            </nav>
+        </div>
+    </header>
 
-        <!-- Hero Section -->
+    <main>
+        <!-- HERO -->
         <section class="hero">
-            <div class="hero-content">
-                <div class="hero-subtitle">Modern Medical & Biotech</div>
-                <h1>Longevidad<br>con <span class="highlight">Rigor</span></h1>
-                <p>Aevendum trae a España las marcas de suplementación más avanzadas del mundo. Exclusividad, ciencia y calidad sin compromisos.</p>
-                <div class="hero-buttons">
-                    <a href="https://tienda.aevendum.com" class="btn-primary">Ver Tienda →</a>
-                    <button class="btn-secondary" onclick="document.getElementById('contact').scrollIntoView()">Solicitar Información</button>
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <div class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">Modern Medical &amp; Biotech</div>
+                <h1 data-aos="fade-up" data-aos-delay="400">Longevidad<br>con <span class="highlight">Rigor</span></h1>
+                <p data-aos="fade-up" data-aos-delay="600">Aevendum trae a España las marcas de suplementación más avanzadas del mundo. Exclusividad, ciencia y calidad sin compromisos.</p>
+                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="800">
+                    <a href="https://tienda.aevendum.com" class="btn btn-primary">Ver Tienda →</a>
+                    <a href="#contact" class="btn btn-secondary">Solicitar Información</a>
+                    <a href="#mission" class="btn btn-secondary">Descubrir Aevendum</a>
                 </div>
             </div>
         </section>
 
-        <!-- Features Section -->
-        <section class="features">
-            <div class="feature-card">
-                <h3>🔬 Rigor Científico</h3>
-                <p>Cada producto es evaluado bajo estándares de excelencia científica. Patentes exclusivas, formulaciones avanzadas y pureza certificada.</p>
-            </div>
-            <div class="feature-card">
-                <h3>💎 Mercado Premium</h3>
-                <p>Acceso directo a un público de alto poder adquisitivo en España, interesado en longevidad y bienestar de clase mundial.</p>
-            </div>
-            <div class="feature-card">
-                <h3>⭐ Exclusividad</h3>
-                <p>Distribución selectiva y controlada. Tu marca se posiciona como la referencia absoluta en su categoría en España.</p>
+        <!-- DIVIDER -->
+        <div class="divider" data-aos="fade-in" data-aos-duration="800"></div>
+
+        <!-- MISSION -->
+        <section id="mission" class="mission">
+            <div class="mission-grid">
+                <div class="mission-image" data-aos="fade-right" data-aos-duration="1000">
+                    <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663425733785/gfrYCFkZLJvAU55EuhLD2W/aevum_lab_premium-gJt7MZuW5UrZt6aF3DQVuo.webp" alt="Laboratorio Premium">
+                </div>
+                <div class="mission-content" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="section-label" data-aos="fade-up" data-aos-delay="200">Nuestra Misión</div>
+                    <h2 data-aos="fade-up" data-aos-delay="400">España merece lo <span class="highlight">extraordinario</span></h2>
+                    <p data-aos="fade-up" data-aos-delay="600"><strong>Aevendum</strong> nace de una convicción: el mercado español merece acceso a los suplementos más puros, científicamente respaldados y exclusivos del panorama global.</p>
+                    <p data-aos="fade-up" data-aos-delay="800">Somos el puente estratégico entre fabricantes de clase mundial y un público español que exige rigor, exclusividad y resultados demostrables.</p>
+                </div>
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="cta-section" id="contact">
-            <h2>Construyamos algo extraordinario</h2>
-            <p>Si representas una marca de suplementos premium y buscas expandir tu presencia en España con rigor científico y exclusividad, nos gustaría conocerte.</p>
-            <a href="https://tienda.aevendum.com" class="btn-primary">Explorar Catálogo Premium →</a>
+        <!-- WHY -->
+        <section id="why" class="why">
+            <div class="why-container">
+                <div class="section-label" data-aos="fade-up">Nuestro Diferencial</div>
+                <h2 data-aos="fade-up" data-aos-delay="200">¿Por qué <span class="highlight">Aevendum</span>?</h2>
+                <div class="why-grid">
+                    <div class="why-card" data-aos="fade-up" data-aos-delay="400">
+                        <h3>🔬 Rigor Científico</h3>
+                        <p>Cada producto es evaluado bajo estándares de excelencia científica. Patentes exclusivas, formulaciones avanzadas y pureza certificada.</p>
+                    </div>
+                    <div class="why-card" data-aos="fade-up" data-aos-delay="600">
+                        <h3>💎 Mercado Premium</h3>
+                        <p>Acceso directo a un público de alto poder adquisitivo en España, interesado en longevidad y bienestar de clase mundial.</p>
+                    </div>
+                    <div class="why-card" data-aos="fade-up" data-aos-delay="800">
+                        <h3>⭐ Exclusividad</h3>
+                        <p>Distribución selectiva y controlada. Tu marca se posiciona como la referencia absoluta en su categoría en España.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="contact">
+            <div class="contact-grid">
+                <div class="contact-content" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="section-label" data-aos="fade-up" data-aos-delay="200">Contacto</div>
+                    <h2 data-aos="fade-up" data-aos-delay="400">Construyamos algo <span class="highlight">extraordinario</span></h2>
+                    <p data-aos="fade-up" data-aos-delay="600">Si representas una marca de suplementos premium y buscas expandir tu presencia en España con rigor científico y exclusividad, nos gustaría conocerte.</p>
+                    <div class="contact-info" data-aos="fade-up" data-aos-delay="800">
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">✉</div>
+                            <span>info@aevendum.com</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="handleSubmit(event)" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="company" placeholder="Tu empresa" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Tu correo electrónico" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Cuéntanos sobre tu marca y tus objetivos en España" required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">✉ Enviar Solicitud</button>
+                </form>
+            </div>
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Aevendum</h4>
-                <p>Modern Medical & Biotech</p>
-            </div>
-            <div class="footer-section">
-                <h4>Tienda</h4>
-                <a href="https://tienda.aevendum.com">Ver Catálogo</a>
-                <a href="https://tienda.aevendum.com/contact">Contacto</a>
-            </div>
-            <div class="footer-section">
-                <h4>Información</h4>
-                <a href="#mision">Nuestra Misión</a>
-                <a href="#vision">Nuestra Visión</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Aevendum. Todos los derechos reservados. | Modern Medical & Biotech</p>
+        <div class="footer-container">
+            <a href="#" class="footer-logo">
+                <img src="./assets/logo.png" alt="Aevendum" width="48" height="48">
+            </a>
+            <p class="footer-text">© 2026 Aevendum. Modern Medical &amp; Biotech — Rigor Científico, Exclusividad Premium.</p>
+            <nav class="footer-nav">
+                <a href="https://tienda.aevendum.com">Tienda</a>
+                <a href="#contact">Contacto</a>
+            </nav>
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+        // Inicializar AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out-cubic',
+            once: false,
+            mirror: true,
+            offset: 120
+        });
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Gracias por tu interés. Te contactaremos pronto.');
+            event.target.reset();
+        }
+
         // Smooth scroll para enlaces internos
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
