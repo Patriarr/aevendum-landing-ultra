@@ -410,6 +410,31 @@
             box-shadow: 0 20px 40px rgba(26, 157, 110, 0.15);
         }
 
+        .why-card-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, rgba(26, 157, 110, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border-radius: 0.75rem;
+            border: 1px solid rgba(26, 157, 110, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .why-card:hover .why-card-icon {
+            background: linear-gradient(135deg, rgba(26, 157, 110, 0.15) 0%, rgba(212, 175, 55, 0.1) 100%);
+            border-color: var(--emerald);
+            transform: scale(1.1);
+        }
+
+        .why-card-icon img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+
         .why-card h3 {
             font-size: 1.3rem;
             font-weight: 600;
@@ -681,15 +706,18 @@
                 <h2 data-aos="fade-up" data-aos-delay="200">¿Por qué <span class="highlight">Aevendum</span>?</h2>
                 <div class="why-grid">
                     <div class="why-card" data-aos="fade-up" data-aos-delay="400">
-                        <h3>🔬 Rigor Científico</h3>
+                        <div class="why-card-icon"><img src="./assets/icon-science.png" alt="Rigor Científico"></div>
+                        <h3>Rigor Científico</h3>
                         <p>Cada producto es evaluado bajo estándares de excelencia científica. Patentes exclusivas, formulaciones avanzadas y pureza certificada.</p>
                     </div>
                     <div class="why-card" data-aos="fade-up" data-aos-delay="600">
-                        <h3>💎 Mercado Premium</h3>
+                        <div class="why-card-icon"><img src="./assets/icon-premium.png" alt="Mercado Premium"></div>
+                        <h3>Mercado Premium</h3>
                         <p>Acceso directo a un público de alto poder adquisitivo en España, interesado en longevidad y bienestar de clase mundial.</p>
                     </div>
                     <div class="why-card" data-aos="fade-up" data-aos-delay="800">
-                        <h3>⭐ Exclusividad</h3>
+                        <div class="why-card-icon"><img src="./assets/icon-exclusivity.png" alt="Exclusividad"></div>
+                        <h3>Exclusividad</h3>
                         <p>Distribución selectiva y controlada. Tu marca se posiciona como la referencia absoluta en su categoría en España.</p>
                     </div>
                 </div>
